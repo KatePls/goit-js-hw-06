@@ -14,12 +14,10 @@ const images = [
 ];
 const ul = document.querySelector(".gallery");
 
-for (const elem of images) {
-  const li = `<li >
-  <img src="${elem.url}" alt="${elem.alt}" width="700px" >
-  </li>`;
-  ul.insertAdjacentHTML("beforeend", li);
-}
+const list = images.map((img) =>
+  `<li><img src="${img.url}" alt="${img.alt}" width="700px"></li>`).join("");
+ul.innerHTML = list; 
+
 ul.style.display = "grid"; 
 ul.style.justifyItems = "center";
 ul.style.listStyle = "none";
