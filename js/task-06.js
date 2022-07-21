@@ -1,11 +1,12 @@
 const inputText = document.querySelector('#validation-input');
 
-function changeBorderColor() {
+function changeBorderColor(event) {
     if (Number(inputText.value.length) === Number(inputText.attributes["data-length"].value)) {
         inputText.classList.add('valid');
+        inputText.classList.remove('invalid');
         return;
     } else {
-        inputText.classList.add('invalid');
+        inputText.classList.toggle('invalid');
         return;
     }
 }
