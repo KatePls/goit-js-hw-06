@@ -14,12 +14,17 @@ const images = [
 ];
 const ul = document.querySelector(".gallery");
 
-const list = images.map((img) =>
-  `<li><img src="${img.url}" alt="${img.alt}" width="700px"></li>`).join("");
-ul.innerHTML = list; 
+const list = images.map((img) =>{
+  const li = document.createElement('li');
+  const image = document.createElement('img');
+  image.src = img.url;
+  image.alt = img.alt;
+  image.style.maxWidth = "700px"
+  li.append(image);
+  return li;
+});
+ul.append(...list); 
 
 ul.style.display = "grid"; 
 ul.style.justifyItems = "center";
 ul.style.listStyle = "none";
-
-

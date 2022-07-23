@@ -8,6 +8,10 @@ const ingredients = [
 ];
 const ul = document.querySelector('#ingredients');
 
-const list = ingredients.map((ingredient) =>
-  `<li class='item'>${ingredient}</li>`).join("");
-ul.innerHTML = list; 
+const list = ingredients.map((ingredient) => {
+  const liElem = document.createElement("li");
+  liElem.textContent = ingredient;
+  return liElem;
+});
+
+ul.append(...list); 
